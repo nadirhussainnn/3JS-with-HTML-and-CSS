@@ -4,17 +4,17 @@ function main() {
   const canvas = document.querySelector("#basic-canvas");
   const renderer = new THREE.WebGLRenderer({ canvas });
 
-  const fov = 75;
+  const fov = 40;
   const aspect = 2; // the canvas default
   const near = 0.1;
-  const far = 5;
+  const far = 1000;
   const camera = new THREE.PerspectiveCamera(
     fov,
     canvas.clientWidth / canvas.clientHeight,
     near,
     far
   );
-  camera.position.z = 2;
+  camera.position.z = 120;
 
   const scene = new THREE.Scene();
 
@@ -27,9 +27,9 @@ function main() {
     scene.add(light);
   }
 
-  const boxWidth = 1;
-  const boxHeight = 1;
-  const boxDepth = 1;
+  const boxWidth = 8;
+  const boxHeight = 8;
+  const boxDepth = 8;
 
   const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
   const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 }); // greenish blue: We changed mesh to show lightening
@@ -63,6 +63,10 @@ function main() {
   }
 
   resizeRendererToDisplaySize(renderer);
+
+  //customizing scene
+
+  scene.background=new THREE.Color(0xAAAAAA);
 }
 
 main();
