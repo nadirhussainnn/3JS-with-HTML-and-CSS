@@ -2,6 +2,7 @@
 
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
 function main() {
   const canvas = document.querySelector("canvas");
@@ -86,6 +87,11 @@ function main() {
   }
 
   resizeRendererToDisplaySize(renderer);
+
+  //Move model on mouse over
+  const controls = new OrbitControls(camera, canvas);
+  controls.target.set(0, 0, 0);
+  controls.update();
 }
 
 main();
