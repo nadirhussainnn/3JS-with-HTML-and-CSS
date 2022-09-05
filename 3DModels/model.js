@@ -6,7 +6,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
 function main() {
   const canvas = document.querySelector("canvas");
-  const renderer = new THREE.WebGLRenderer({ canvas });
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha:true }); //alpha:true will make canvas transparent
   const scene = new THREE.Scene();
 
   let objects;
