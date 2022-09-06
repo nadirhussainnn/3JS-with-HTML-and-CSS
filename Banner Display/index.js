@@ -12,7 +12,7 @@ var scene,
 
 // ## Scene options
 var wireframe = false; // Set to true to see object wireframes
-var sceneLoadDelay = 500; // Delay from when fully loaded to fade in scene
+var sceneLoadDelay = 100; // Delay from when fully loaded to fade in scene
 
 let cameraX = 11; // Camera x position
 let cameraY = 1; // Camera y position
@@ -24,7 +24,7 @@ let cameraMoveSpeed = 1.2; // How fast cam moves to next crate
 let crateOffset = 20; // How far each crate is apart
 let sceneOffset = 1; // The scene offset
 
-let sceneBg = "black"; // The scene global color
+let sceneBg = "#1473DC"; // The scene global color
 
 let globalAmbienceIntensity = 0.06; // Set general ambience
 let globalAmbienceColor = "#d39cf3"; // General ambience color
@@ -58,10 +58,10 @@ let rockAnimationRotationFive = -0.1; // Stage five rock amount
 let rockAnimationDurationSix = 0.05; // Stage six rock duration
 let rockAnimationRotationSix = 0; // Stage one six amount
 
-let smokeAmount = 40; // How many smoke particles per crate
+let smokeAmount = 100; // How many smoke particles per crate
 
-let particleAmount = 1000; // Global particle count
-let particleMaxSize = 15; // Max particle size
+let particleAmount = 5000; // Global particle count
+let particleMaxSize = 10; // Max particle size
 
 let slidePlayDelay = 500; // Delay from click until slide is played
 
@@ -107,7 +107,7 @@ function startScene() {
     45,
     canvasWidth / canvasHeight,
     1,
-    13000
+    1000
   ); // Create a new camera
   camera.lookAt(scene.position); // Point it at our scenes origin
   camera.position.set(cameraX, cameraY, cameraZ); // Position it to liking
@@ -457,16 +457,17 @@ function onWindowResize() {
 
 // ## Crate information array
 let crateInfoArray = [
+{},   
   {
-    name: "Noob loot crate", // First crate
-    text: "You probably wont get much in this loot crate to be honest, but what can you expect for such a low cost?",
+    name: "Embedded Systems", // First crate
+    text: "We build high-end software for microcontrollers and microprocessors using our extensive experience in embedded hardware design and development, and our skills in RTOS, Linux, Internet protocols, networking, security, and C/C++ prog﻿ramming languages. We help our clients to develop complete end-to-end solutions which involves conceptualization, prototyping, hardware testing, firmware development and testing, UAT and production. Our software satisfies the requirements for reliability and performance and adheres to strict certification and qualification standards",
     price: "20,000",
   },
-  {
-    name: "Novice loot crate", // Second crate
-    text: "This loot crate will contain a few relatively decent items that you can show off to your friends",
-    price: "49,999",
-  },
+//   {
+//     name: "Novice loot crate", // Second crate
+//     text: "This loot crate will contain a few relatively decent items that you can show off to your friends",
+//     price: "49,999",
+//   },
   {
     name: "Pro loot crate", // Third crate
     text: "Now we are talking, this crate contains loot for the professional player, weapons and items galore",
@@ -512,10 +513,17 @@ function moveCamera(amount) {
 }
 
 // ## User interaction
-$(".button").click(function () {
+$(".button").click(carousel_mover);
+
+
+function carousel_mover() {
+
+
   if (can_click == 1 && $(this).hasClass("left") && position > 0) {
     moveCamera(crateOffset); // Move the camera
     position--; // Decrease our position in the slider
+    // timelines(); // Play the animation of the crate rocking
+    // playSmoke(); // Play smoke
     crateInfo(position); // Update crate info
   } else if (
     can_click == 1 &&
@@ -529,7 +537,7 @@ $(".button").click(function () {
     playSmoke(); // Play smoke
     crateInfo(position); // Update crate info
   }
-});
+}
 
 // ## Go
 function render() {
@@ -556,9 +564,7 @@ $(document).on("mousemove", function (e) {
 function deep_ui() {
   var global_perspective = 800; // Global perspective set to parent
   var pivot = 50; // The higher this number the more subtle the pivot effect
-  var debug = false; // Shows various debug information
-  var animation_delay = 100; // Delay before animation starts cannot be 0. In ms.
-  var animation_easing = "ease"; // Animation easing
+ 
   var deep_parent = $("*[data-deep-ui='true']"); // Parent with deep active
   var deep_element = $("[data-depth]"); // Elements with depth
   deep_parent.each(function () {
@@ -597,3 +603,8 @@ function fullscreen() {
 $(".fullscreen").click(function () {
   fullscreen();
 });
+
+$(document).ready(()=>{
+
+  setInterval(carousel_mover,500)
+})

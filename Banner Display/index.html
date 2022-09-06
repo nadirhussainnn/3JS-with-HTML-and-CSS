@@ -1,91 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader_inner"></div>
+    </div>
+    <div id="canvas"></div>
+    <div class="ui">
+      <div class="noise"></div>
+      <div class="vig"></div>
+      <div class="bloom"></div>
 
-    <div class='loader'>
-        <div class='loader_inner'></div>
+      <div class="logo">
+        <img src="assets/ic_logo.png" />
       </div>
-      <div id='canvas'></div>
-      <div class='ui'>
-        <div class='noise'></div>
-        <div class='vig'></div>
-        <div class='bloom'></div>
-        <div class='fullscreen'>
-          <i class='fa fa-expand'></i>
-        </div>
-        <div class='logo'>
-          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/notEarthLogo.png'>
-        </div>
-        <div class='gems'>
-          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/gemsBg.png'>
-        </div>
-        <div class='friends'>
-          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/friendsBg.png'>
-        </div>
-        <div class='follow'>
-          <a href='https://codepen.io/jcoulterdesign' target='_blank'>
-            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/followBg.png'>
-          </a>
-        </div>
-        <div class='left button'>
-          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowBg.png'>
-        </div>
-        <div class='right button'>
-          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowBg.png'>
-        </div>
-        <div class='box'>
-          <div class='box_inner' data-deep-animate-time='.7' data-deep-animate='false' data-deep-ui='true'>
-            <div class='box_inner__title' data-depth='20'>
-              Noob loot crate
+     
+      <!-- <div class="gems">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/gemsBg.png"
+        />
+      </div> -->
+      <div class="friends">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/friendsBg.png"
+        />
+      </div>
+
+      <div class="left button">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowBg.png"
+        />
+      </div>
+      <div class="right button">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowBg.png"
+        />
+      </div>
+      <div class="box">
+        <div
+          class="box_inner"
+          data-deep-animate-time=".7"
+          data-deep-animate="false"
+          data-deep-ui="true"
+        >
+          <div class="box_inner__title" data-depth="20">SILICON NEXUS</div>
+          <div class="box_inner__decal">
+            <img
+              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/decalBg.png"
+            />
+          </div>
+          <div class="box_inner__text" data-depth="10">
+            Silicon Nexus is an emerging global leader in the space of 4th
+            industrial revolution. We provide end-to-end product development, IT
+            consulting, and innovative technological solutions across the
+            Americas, Europe, and the Asia Pacific regions
+          </div>
+          <div class="box_inner__cost" data-depth="31">
+            <div class="left">
+              <i class="fa fa-diamond"></i>
             </div>
-            <div class='box_inner__decal'>
-              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/decalBg.png'>
-            </div>
-            <div class='box_inner__text' data-depth='10'>
-              You probably wont get much in this loot crate to be honest, but what can you expect for such a low cost?
-            </div>
-            <div class='box_inner__cost' data-depth='31'>
-              <div class='left'>
-                <i class='fa fa-diamond'></i>
-              </div>
-              <div class='right'>
-                20,000
-              </div>
-            </div>
-            <div class='box_inner__cta' data-depth='31'>
-              <span data-depth='44'>Buy with credits</span>
-            </div>
+            <div class="right">20,000</div>
+          </div>
+          <div class="box_inner__cta" data-depth="31">
+            <span data-depth="44">MORE DETAILS</span>
           </div>
         </div>
       </div>
+    </div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
 
-      <script type="importmap">
-        {
-          "imports": {
-            "three": "https://threejs.org/build/three.module.js",
-            "three/addons/": "https://threejs.org/examples/jsm/"
-          }
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://threejs.org/build/three.module.js",
+          "three/addons/": "https://threejs.org/examples/jsm/"
         }
-      </script>
-      <!-- Remove this when import maps will be widely supported -->
-      <script
-        async
-        src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"
-      ></script>
-  
-      <script src="./index.js" type="module"></script>
-      
-    
-</body>
+      }
+    </script>
+    <!-- Remove this when import maps will be widely supported -->
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"
+    ></script>
+
+    <script src="./index.js" type="module"></script>
+  </body>
 </html>
